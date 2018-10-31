@@ -9,15 +9,11 @@
  */
 
 class Boot extends Phaser.State {
-	preload() {
-		
-	}
-	
 	create(){
 		// Set attributes
 		this.scale.scaleMode = Phaser.ScaleManager.Show_ALL;
 		
 		// Start the next state
-		//this.game.state.start("Preload");
+		this.game.state.start("Preload");
 	}
 }
