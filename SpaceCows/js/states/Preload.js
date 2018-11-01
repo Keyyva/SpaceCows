@@ -11,12 +11,11 @@
 class Preload extends Phaser.State {
 	preload(){
 		// Preloads the required assets
-		
-		// Empty... for now
+		game.load.image('mainMenuBackground', 'SpaceCows/assets/MainMenu.png');
 	}
 	
 	create(){
 		// Starts the next state
-		//this.game.state.start("");
+		this.game.state.start("MainMenu");
 	}
 }

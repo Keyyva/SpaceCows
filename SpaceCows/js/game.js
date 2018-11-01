@@ -10,7 +10,7 @@
 
 class Game extends Phaser.Game {
 	constructor(){
-		// Size game to window's dimentions
+		// Size game to window's dimensions
 		super(window.innerWidth * window.devicePixelRatio,
 				window.innerHeight * window.devicePixelRatio,
 				Phaser.AUTO, "SpaceCows");
@@ -18,12 +18,12 @@ class Game extends Phaser.Game {
 		// States
 		this.state.add("Boot", Boot, false);
 		this.state.add("Preload", Preload, false);
+		this.state.add("MainMenu", MainMenu, false);
 		
 		
 		// Start the boot state
 		this.state.start("Boot");
-		
 	}
 }
 
-new Game();
+const game = new Game();
