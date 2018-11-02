@@ -14,8 +14,8 @@ var buttonPlay;
 var buttonHow;	// "HowToPlay" button
 
 // The frame numbers in MainMenuButtons sprite for each button state
-var buttonPlayType = {IDLE: 0, HOVER: 1, CLICK: 3};
-var buttonHowType = {IDLE: 4, HOVER: 5, CLICK: 6};
+var buttonPlayType = {IDLE: 0, HOVER: 1, CLICK: 2};
+var buttonHowType = {IDLE: 3, HOVER: 4, CLICK: 5};
 
 class MainMenu extends Phaser.State {
 	create(){
@@ -33,8 +33,14 @@ class MainMenu extends Phaser.State {
 	}
 	
 	/*** Called when the "Play" button [buttonPlay] is clicked ***/
+	// Fades the camera then goes to the next state
 	playClick(){
-		console.log("Play CLICKED! :D");
+		game.camera.fade(0x000000, 500);
+		game.time.events.add(Phaser.Timer.SECOND * 0.5, nextState, this);	// Timed so camera can properly fade
+		
+		function nextState(){
+			this.game.state.start("SpaceCows");
+		}
 	}
 	
 	/*** Called when the "How to Play" button [buttonHow] is clicked ***/
