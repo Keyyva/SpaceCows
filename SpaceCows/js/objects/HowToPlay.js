@@ -9,10 +9,12 @@
  */
 
 var isAlive = false;
-var popupBackground;
-var buttonX;
 
 class HowToPlay{
+	constructor(){
+		this.popupBackground;
+		this.buttonX;
+	}
 	
 	/*** Called externally of class - CALL THIS TO MAKE POPUP APPEAR ***/
 	showPopup(){
@@ -20,18 +22,18 @@ class HowToPlay{
 		buttonPlay.inputEnabled = false;	// Ensures user doesn't start the game without closing the popup first
 		
 		// Popup background
-		popupBackground = game.add.sprite(game.world.centerX, game.world.centerY, "HowToPlayPopup");
-		popupBackground.anchor.setTo(0.5);
+		this.popupBackground = game.add.sprite(game.world.centerX, game.world.centerY, "HowToPlayPopup");
+		this.popupBackground.anchor.setTo(0.5);
 		
 		// Popup 'X' button
-		buttonX = game.add.button(popupBackground.x + (popupBackground.width/2 - 20), popupBackground.y - (popupBackground.height/2 - 20), "ButtonX", this.destroyPopup, this, 1, 0, 2);
-		buttonX.anchor.setTo(0.5);
+		this.buttonX = game.add.button(this.popupBackground.x + (this.popupBackground.width/2 - 20), this.popupBackground.y - (this.popupBackground.height/2 - 20), "ButtonX", this.destroyPopup, this, 1, 0, 2);
+		this.buttonX.anchor.setTo(0.5);
 	}
 	
 	/*** Destroys the popup and resets attributes ***/
 	destroyPopup(){
-		popupBackground.destroy();
-		buttonX.destroy();
+		this.popupBackground.destroy();
+		this.buttonX.destroy();
 		isAlive = false;
 		buttonPlay.inputEnabled = true;	// Re-enables the play button
 	}

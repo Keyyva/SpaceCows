@@ -9,30 +9,34 @@
  * Created by Keyyva on Oct 31 2018
  */
 
-var mainMenuBackground;
-var buttonPlay;
-var buttonHow;	// "HowToPlay" button
-var howPopup;
-
-// The frame numbers in MainMenuButtons sprite for each button state
-var buttonPlayType = {IDLE: 0, HOVER: 1, CLICK: 2};
-var buttonHowType = {IDLE: 3, HOVER: 4, CLICK: 5};
+var buttonPlay;	// Global for HowToPlay's access (wish Javascript had pointers...)
 
 class MainMenu extends Phaser.State {
+	constructor(){
+		super();
+		this.mainMenuBackground;
+		this.buttonHow;	// "HowToPlay" button
+		this.howPopup;
+
+		// The frame numbers in MainMenuButtons sprite for each button state
+		this.buttonPlayType = {IDLE: 0, HOVER: 1, CLICK: 2};
+		this.buttonHowType = {IDLE: 3, HOVER: 4, CLICK: 5};
+	}
+	
 	create(){
-		howPopup = new HowToPlay();	// Initialize the How To Play Popup
+		this.howPopup = new HowToPlay();	// Initialize the How To Play Popup
 		
 		/*** Places the Main Menu Background in the centre of the screen ***/
-		mainMenuBackground = game.add.sprite(game.world.centerX, game.world.centerY, 'mainMenuBackground');
-		mainMenuBackground.anchor.setTo(0.5);
+		this.mainMenuBackground = game.add.sprite(game.world.centerX, game.world.centerY, 'mainMenuBackground');
+		this.mainMenuBackground.anchor.setTo(0.5);
 		
 		/*** Places the menu buttons relative to the MainMenuBackground ***/
 		// Play button
-		buttonPlay = game.add.button(mainMenuBackground.x + mainMenuBackground.width/4, mainMenuBackground.y + mainMenuBackground.height/8, "MainMenuButtons", this.playClick, this, buttonPlayType.HOVER, buttonPlayType.IDLE, buttonPlayType.CLICK);
+		buttonPlay = game.add.button(this.mainMenuBackground.x + this.mainMenuBackground.width/4, this.mainMenuBackground.y + this.mainMenuBackground.height/8, "MainMenuButtons", this.playClick, this, this.buttonPlayType.HOVER, this.buttonPlayType.IDLE, this.buttonPlayType.CLICK);
 		buttonPlay.anchor.setTo(0.5);
 		// How to Play button
-		buttonHow = game.add.button(mainMenuBackground.x + mainMenuBackground.width/4, mainMenuBackground.y + mainMenuBackground.height/3, "MainMenuButtons", this.HowToPlayClick, this, buttonHowType.HOVER, buttonHowType.IDLE, buttonHowType.CLICK);
-		buttonHow.anchor.setTo(0.5);
+		this.buttonHow = game.add.button(this.mainMenuBackground.x + this.mainMenuBackground.width/4, this.mainMenuBackground.y + this.mainMenuBackground.height/3, "MainMenuButtons", this.HowToPlayClick, this, this.buttonHowType.HOVER, this.buttonHowType.IDLE, this.buttonHowType.CLICK);
+		this.buttonHow.anchor.setTo(0.5);
 	}
 	
 	
@@ -40,7 +44,7 @@ class MainMenu extends Phaser.State {
 	/*** Called when the "Play" button [buttonPlay] is clicked ***/
 	playClick(){
 		// Fades the camera then goes to the next state
-		game.camera.fade(0x000000, 500);
+		this.game.camera.fade(0x000000, 500);
 		this.game.camera.onFadeComplete.add(nextState, this);
 		
 		function nextState(){
@@ -52,6 +56,6 @@ class MainMenu extends Phaser.State {
 	/*** Called when the "How to Play" button [buttonHow] is clicked ***/
 	HowToPlayClick(){
 		if(!isAlive)	// isAlive located in HowToPlay
-			howPopup.showPopup();
+			this.howPopup.showPopup();
 	}
 }

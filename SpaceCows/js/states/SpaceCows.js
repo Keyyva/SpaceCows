@@ -9,6 +9,10 @@
  */
 
 class SpaceCows extends Phaser.State {
+	constructor(){
+		super();
+	}
+	
 	create(){
 		console.log("In SpaceCows - the gameplay state!");
 	}
