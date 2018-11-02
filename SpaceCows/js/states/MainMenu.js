@@ -10,11 +10,35 @@
  */
 
 var mainMenuBackground;
+var buttonPlay;
+var buttonHow;	// "HowToPlay" button
 
-class MainMenu extends Phaser.State {	
+// The frame numbers in MainMenuButtons sprite for each button state
+var buttonPlayType = {IDLE: 0, HOVER: 1, CLICK: 3};
+var buttonHowType = {IDLE: 4, HOVER: 5, CLICK: 6};
+
+class MainMenu extends Phaser.State {
 	create(){
-		// Places the Main Menu Background in the centre of the screen
+		/*** Places the Main Menu Background in the centre of the screen ***/
 		mainMenuBackground = game.add.sprite(game.world.centerX, game.world.centerY, 'mainMenuBackground');
 		mainMenuBackground.anchor.setTo(0.5);
+		
+		/*** Places the menu buttons relative to the MainMenuBackground ***/
+		// Play button
+		buttonPlay = game.add.button(mainMenuBackground.x + mainMenuBackground.width/4, mainMenuBackground.y + mainMenuBackground.height/8, "MainMenuButtons", this.playClick, this, buttonPlayType.HOVER, buttonPlayType.IDLE, buttonPlayType.CLICK);
+		buttonPlay.anchor.setTo(0.5);
+		// How to Play button
+		buttonHow = game.add.button(mainMenuBackground.x + mainMenuBackground.width/4, mainMenuBackground.y + mainMenuBackground.height/3, "MainMenuButtons", this.HowToPlayClick, this, buttonHowType.HOVER, buttonHowType.IDLE, buttonHowType.CLICK);
+		buttonHow.anchor.setTo(0.5);
+	}
+	
+	/*** Called when the "Play" button [buttonPlay] is clicked ***/
+	playClick(){
+		console.log("Play CLICKED! :D");
+	}
+	
+	/*** Called when the "How to Play" button [buttonHow] is clicked ***/
+	HowToPlayClick(){
+		console.log("How to Play CLICKED!");
 	}
 }
