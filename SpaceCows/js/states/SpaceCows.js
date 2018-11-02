@@ -11,9 +11,17 @@
 class SpaceCows extends Phaser.State {
 	constructor(){
 		super();
+		this.spaceCowsBackground;
+		this.ufoLight;
 	}
 	
 	create(){
-		console.log("In SpaceCows - the gameplay state!");
+		// Background
+		this.spaceCowsBackground = game.add.sprite(game.world.centerX, game.world.centerY, "SpaceCowsBackground");
+		this.spaceCowsBackground.anchor.setTo(0.5);
+		// UFO Light
+		this.ufoLight = game.add.sprite(this.spaceCowsBackground.x - this.spaceCowsBackground.width/20, this.spaceCowsBackground.y + this.spaceCowsBackground.height / 8, "UfoLight");
+		this.ufoLight.anchor.setTo(0.5);
+		this.ufoLight.alpha = 0;
 	}
 }

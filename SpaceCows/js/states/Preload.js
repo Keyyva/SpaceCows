@@ -24,6 +24,10 @@ class Preload extends Phaser.State {
 		// How to Play
 		game.load.image("HowToPlayPopup", "SpaceCows/assets/HowToPlayPopup.png");
 		game.load.spritesheet("ButtonX", "SpaceCows/assets/ButtonX.png", this.xButtonDims.WIDTH, this.xButtonDims.HEIGHT);
+		
+		// Space Cows
+		game.load.image("SpaceCowsBackground", "SpaceCows/assets/SpaceCows.png");
+		game.load.image("UfoLight", "SpaceCows/assets/UfoLight.png");
 	}
 	
 	create(){
