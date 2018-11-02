@@ -23,5 +23,7 @@ class SpaceCows extends Phaser.State {
 		this.ufoLight = game.add.sprite(this.spaceCowsBackground.x - this.spaceCowsBackground.width/20, this.spaceCowsBackground.y + this.spaceCowsBackground.height / 8, "UfoLight");
 		this.ufoLight.anchor.setTo(0.5);
 		this.ufoLight.alpha = 0;
+		
+		game.camera.flash(0, 500);	// FadeIn
 	}
 }
