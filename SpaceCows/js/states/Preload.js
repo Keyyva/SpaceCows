@@ -11,8 +11,9 @@
 class Preload extends Phaser.State {
 	constructor(){
 		super();
-		this.menuButtonDims = {WIDTH: 272, HEIGHT: 101}	// Pixel width and height of an individual button in the MainMenuButton spritesheet
-		this.xButtonDims = {WIDTH: 88, HEIGHT: 89}
+		this.menuButtonDims = {WIDTH: 272, HEIGHT: 101};	// Pixel width and height of an individual button in the MainMenuButton spritesheet
+		this.xButtonDims = {WIDTH: 88, HEIGHT: 89};
+		this.buttonAnswerDims = {WIDTH: 118, HEIGHT: 118};
 	}
 	
 	preload(){
@@ -28,6 +29,9 @@ class Preload extends Phaser.State {
 		// Space Cows
 		game.load.image("SpaceCowsBackground", "SpaceCows/assets/SpaceCows.png");
 		game.load.image("UfoLight", "SpaceCows/assets/UfoLight.png");
+		game.load.image("TryAgain", "SpaceCows/assets/TryAgain.png");
+			// Answer Buttons
+		game.load.spritesheet("ButtonAnswer", "SpaceCows/assets/ButtonAnswer.png", this.buttonAnswerDims.WIDTH, this.buttonAnswerDims.HEIGHT);
 	}
 	
 	create(){

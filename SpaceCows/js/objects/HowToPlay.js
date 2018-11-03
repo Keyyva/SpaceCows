@@ -10,8 +10,9 @@
 
 var isAlive = false;
 
-class HowToPlay{
+class HowToPlay {
 	constructor(){
+		// HowToPlay private variables
 		this.popupBackground;
 		this.buttonX;
 	}
