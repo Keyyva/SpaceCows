@@ -32,7 +32,7 @@ class Preload extends Phaser.State {
 		game.load.image("UfoLight", "SpaceCows/assets/UfoLight.png");
 		game.load.image("TryAgain", "SpaceCows/assets/TryAgain.png");
 		game.load.spritesheet("ButtonAnswer", "SpaceCows/assets/ButtonAnswer.png", this.buttonAnswerDims.WIDTH, this.buttonAnswerDims.HEIGHT);
-		game.load.spritesheet("ContinueButton", "SpaceCows/assets/ContinueButton.png", this.continueButtonDims.WIDTH, this.continueButtonDims.HEIGHT);
+		game.load.spritesheet("ContinueButton", "SpaceCows/assets/ButtonContinue.png", this.continueButtonDims.WIDTH, this.continueButtonDims.HEIGHT);
 	}
 	
 	create(){
