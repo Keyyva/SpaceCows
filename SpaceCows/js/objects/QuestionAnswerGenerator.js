@@ -22,7 +22,7 @@ class QuestionAnswerGenerator {
 		switch(rand){
 		// Sets q1=random	q2=0	a=0
 		case 0:
-			this.QA = {q1: Math.floor((Math.random() * 8)), a: 0, q2: 0}
+			this.QA = {q1: Math.floor((Math.random() * 7) + 1), a: 0, q2: 0}
 			console.log(this.QA.q1 + " q0 " + this.QA.q2);
 			break;
 			
