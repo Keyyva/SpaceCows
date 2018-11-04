@@ -82,6 +82,7 @@ class SpaceCows extends Phaser.State {
 	reset(){
 		this.continueButton.x = -1000;
 		this.continueButton.y = -1000;	// Sets continue button into negative space so it's not visible
+		this.tryAgain.alpha = 0;
 		this.QA = this.generator.generate();		// Generate a question and answer
 		this.question.text = this.getQuestion();	// Set the question
 		
@@ -99,6 +100,7 @@ class SpaceCows extends Phaser.State {
 	/*** A continue button is displayed, when clicked the game get reset ***/
 	// When the user picks the correct answer, this function is called
 	correct(){
+		this.tryAgain.alpha = 0;
 		this.continueButton.x = this.spaceCowsBackground.x;
 		this.continueButton.y = this.spaceCowsBackground.y;
 	}
@@ -121,6 +123,7 @@ class SpaceCows extends Phaser.State {
 		else{
 			// INCORRECT
 			console.log("Try Again");
+			this.tryAgain.alpha = 1;
 		}
 	}
 	
@@ -134,6 +137,7 @@ class SpaceCows extends Phaser.State {
 		else{
 			// INCORRECT
 			console.log("Try Again");
+			this.tryAgain.alpha = 1;
 		}
 	}
 	
@@ -147,6 +151,7 @@ class SpaceCows extends Phaser.State {
 		else{
 			// INCORRECT
 			console.log("Try Again ");
+			this.tryAgain.alpha = 1;
 		}
 	}
 }
