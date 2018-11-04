@@ -117,12 +117,10 @@ class SpaceCows extends Phaser.State {
 	button1Click(){
 		if(parseInt(this.answer1.text) == this.QA.a){
 			// CORRECT
-			console.log("Correct!");
 			this.correct();
 		}
 		else{
 			// INCORRECT
-			console.log("Try Again");
 			this.tryAgain.alpha = 1;
 		}
 	}
@@ -131,12 +129,10 @@ class SpaceCows extends Phaser.State {
 	button2Click(){
 		if(parseInt(this.answer2.text) == this.QA.a){
 			// CORRECT
-			console.log("Correct!");
 			this.correct();
 		}
 		else{
 			// INCORRECT
-			console.log("Try Again");
 			this.tryAgain.alpha = 1;
 		}
 	}
@@ -145,12 +141,10 @@ class SpaceCows extends Phaser.State {
 	button3Click(){
 		if(parseInt(this.answer3.text) == this.QA.a){
 			// CORRECT
-			console.log("Correct!");
 			this.correct();
 		}
 		else{
 			// INCORRECT
-			console.log("Try Again ");
 			this.tryAgain.alpha = 1;
 		}
 	}

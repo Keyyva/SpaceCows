@@ -17,21 +17,17 @@ class QuestionAnswerGenerator {
 	generate(){
 		// Questions go up to 7x7. Possible answers are; 0, 1 or another number.
 		var rand = Math.floor((Math.random() * 3)); 	// Random number to choose which type of question.
-		console.log("The type of question is: " + rand);
 		
 		switch(rand){
 		// Sets q1=random	q2=0	a=0
 		case 0:
 			this.QA = {q1: Math.floor((Math.random() * 7) + 1), a: 0, q2: 0}
-			console.log(this.QA.q1 + " q0 " + this.QA.q2);
 			break;
 			
 		// Sets q1=random	q2=same random	a=1
 		case 1:
 			rand = Math.floor((Math.random() * 7) + 1);
-			console.log(rand);
 			this.QA = {q1: rand, a: 1, q2: rand}
-			console.log(this.QA.q1 + " q1 " + this.QA.q2);
 			break;
 			
 		// Sets q1=random	a=random	q2=q1*a
@@ -39,7 +35,6 @@ class QuestionAnswerGenerator {
 			this.QA.q1 = Math.floor((Math.random() * 6) + 2);
 			this.QA.a = Math.floor((Math.random() * 6) + 2);
 			this.QA.q2 = this.QA.q1 * this.QA.a;
-			console.log(this.QA.q1 + " q2 " + this.QA.q2);
 			break;
 			
 		default:
