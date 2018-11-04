@@ -59,7 +59,7 @@ class SpaceCows extends Phaser.State {
 		this.button2.anchor.setTo(0.5);
 		this.button3 = game.add.button(this.spaceCowsBackground.x + this.spaceCowsBackground.width/3, this.spaceCowsBackground.y + this.spaceCowsBackground.height / 3, "ButtonAnswer", this.button3Click, this, this.buttonType.HOVER, this.buttonType.IDLE, this.buttonType.CLICK);
 		this.button3.anchor.setTo(0.5);
-		this.continueButton = game.add.button(-1000, -1000, "continueButton", this.reset, this, this.buttonType.HOVER, this.buttonType.IDLE, this.buttonType.CLICK);
+		this.continueButton = game.add.button(-1000, -1000, "ContinueButton", this.reset, this, this.buttonType.HOVER, this.buttonType.IDLE, this.buttonType.CLICK);
 		this.continueButton.anchor.setTo(0.5);
 		
 		// Text
