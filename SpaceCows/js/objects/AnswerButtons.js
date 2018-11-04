@@ -16,6 +16,7 @@ class AnswerButtons {
 		this.button1;
 		this.button2;
 		this.button3;
+		this.continueButton;
 		
 		// The frame numbers in the ButtonAnswer sprite for each button state
 		this.buttonType = {IDLE: 0, HOVER: 1, CLICK: 2};
@@ -44,6 +45,8 @@ class AnswerButtons {
 		this.button2.anchor.setTo(0.5);
 		this.button3 = game.add.button(spaceCowsBackground.x + spaceCowsBackground.width/3, spaceCowsBackground.y + spaceCowsBackground.height / 3, "ButtonAnswer", this.button3Click, this, this.buttonType.HOVER, this.buttonType.IDLE, this.buttonType.CLICK);
 		this.button3.anchor.setTo(0.5);
+		this.continueButton = game.add.button(spaceCowsBackground.x, spaceCowsBackground.y, "continueButton", this.reset, this, this.buttonType.HOVER, this.buttonType.IDLE, this.buttonType.CLICK);
+		this.continueButton.anchor.setTo(0.5);
 		
 		// Text
 		this.question = game.add.text(spaceCowsBackground.x + spaceCowsBackground.width/3, spaceCowsBackground.y - spaceCowsBackground.height/9, this.getQuestion(), {font: "60px Arial", fill: "#000"});
@@ -61,6 +64,8 @@ class AnswerButtons {
 	
 	/*** Resets the question and answer (also creates the first question and answer) ***/
 	reset(){
+		this.continueButton.x = -1000;
+		this.continueButton.y = -1000;
 		this.QA = this.generator.generate();
 		
 		// Set the question
@@ -80,6 +85,8 @@ class AnswerButtons {
 	// When the user picks the correct answer, this function is called
 	correct(){
 		// TODO: Display "continue" button. When clicked, reset the game.
+		this.continueButton.x = spaceCowsBackground.x;
+		this.continueButton.y = spaceCowsBackground.y;
 	}
 	
 	/*** Returns the question as a string ***/
