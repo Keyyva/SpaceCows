@@ -103,6 +103,12 @@ class SpaceCows extends Phaser.State {
 		this.tryAgain.alpha = 0;
 		this.continueButton.x = this.spaceCowsBackground.x;
 		this.continueButton.y = this.spaceCowsBackground.y;
+		
+		// UFO light animation
+		var tween = game.add.tween(this.ufoLight).to( { alpha: 0.7 }, 500, Phaser.Easing.Bounce.In, true);
+		tween.onComplete.addOnce(function(){
+			var tween = game.add.tween(this.ufoLight).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true);
+		}, this);
 	}
 	
 	/*** Returns the question as a string ***/
@@ -121,7 +127,10 @@ class SpaceCows extends Phaser.State {
 		}
 		else{
 			// INCORRECT
-			this.tryAgain.alpha = 1;
+			var tween = game.add.tween(this.tryAgain).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true);
+			tween.onComplete.addOnce(function(){
+				game.add.tween(this.tryAgain).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 500);
+			}, this);
 		}
 	}
 	
@@ -133,7 +142,10 @@ class SpaceCows extends Phaser.State {
 		}
 		else{
 			// INCORRECT
-			this.tryAgain.alpha = 1;
+			var tween = game.add.tween(this.tryAgain).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true);
+			tween.onComplete.addOnce(function(){
+				game.add.tween(this.tryAgain).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 500);
+			}, this);
 		}
 	}
 	
@@ -145,7 +157,10 @@ class SpaceCows extends Phaser.State {
 		}
 		else{
 			// INCORRECT
-			this.tryAgain.alpha = 1;
+			var tween = game.add.tween(this.tryAgain).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true);
+			tween.onComplete.addOnce(function(){
+				game.add.tween(this.tryAgain).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 500);
+			}, this);
 		}
 	}
 }
