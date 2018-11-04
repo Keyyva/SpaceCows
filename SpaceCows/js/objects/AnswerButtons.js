@@ -46,7 +46,8 @@ class AnswerButtons {
 		this.button3.anchor.setTo(0.5);
 		
 		// Text
-		this.question = game.add.text(spaceCowsBackground.x, spaceCowsBackground.y, this.getQuestion(), {font: "70px Arial", fill: "#000"});
+		this.question = game.add.text(spaceCowsBackground.x + spaceCowsBackground.width/3, spaceCowsBackground.y - spaceCowsBackground.height/9, this.getQuestion(), {font: "60px Arial", fill: "#000"});
+		this.question.anchor.setTo(0.5);
 		this.answer1 = game.add.text(this.button1.x, this.button1.y, "0", {font: "70px Arial", fill: "#000"});
 		this.answer1.anchor.setTo(0.5);
 		this.answer2 = game.add.text(this.button2.x, this.button3.y, "1", {font: "70px Arial", fill: "#00"});
